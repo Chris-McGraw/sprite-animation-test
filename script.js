@@ -1,3 +1,5 @@
+var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526827740/down-move-0_lwmufh.png";
+
 var rightMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-0_gbenfg.png";
 var rightMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-1_tsz08l.png";
 var rightMove2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-2_qhqeeu.png";
@@ -87,6 +89,9 @@ $(document).ready(function() {
     if (loopCount <= 1) {
       walkLoop();
     }
+    else {
+      moveZero();
+    }
   }
 
 
@@ -157,6 +162,18 @@ $(document).ready(function() {
     if (loopCount <= 1) {
       walk_Left_Loop();
     }
+    else {
+      left_Move_Zero();
+    }
+  }
+
+
+  /* ----------------- Down Movement Functionality ----------------- */
+
+  function down_Move_Zero() {
+    setTimeout(function() {
+      $spriteImg.attr("src", downMove0);
+    }, loopTimer);
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
@@ -164,38 +181,38 @@ $(document).ready(function() {
   $(document).keydown(function(event) {
     if(loopCount <= 1) {
       if(event.which === 68) {
-        $spriteImg.addClass("move-right");
+        /* $spriteImg.addClass("move-right"); */
         walkLoop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
-          spritePosition = $spriteImg.position().left;
-          $spriteImg.css("left", spritePosition + "px");
-          $spriteImg.removeClass("move-right");
-        }, 720);
 
-        /* $(document).keyup(function(event) {
-          moveZero();
-        }); */
+          /* spritePosition = $spriteImg.position().left;
+          $spriteImg.css("left", spritePosition + "px");
+          $spriteImg.removeClass("move-right"); */
+
+        }, 720);
       }
 
       if(event.which === 65) {
-        $spriteImg.addClass("move-left");
+        /* $spriteImg.addClass("move-left"); */
         walk_Left_Loop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
-          spritePosition = $spriteImg.position().left;
-          $spriteImg.css("left", spritePosition + "px");
-          $spriteImg.removeClass("move-left");
-        }, 720);
 
-        /* $(document).keyup(function(event) {
-          left_Move_Zero();
-        }); */
+          /* spritePosition = $spriteImg.position().left;
+          $spriteImg.css("left", spritePosition + "px");
+          $spriteImg.removeClass("move-left"); */
+
+        }, 720);
       }
+
+      $(document).keyup(function(event) {
+        down_Move_Zero();
+      });
     }
   });
 
