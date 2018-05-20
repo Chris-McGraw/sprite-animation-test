@@ -11,11 +11,11 @@
 }
 
 .move-right {
-  transform: translate(1000px);
-  transition: transform 9000ms linear;
+  transform: translate(64px);
+  transition: transform 800ms linear;
 }
 
 .move-left {
-  transform: translate(0px);
-  transition: transform 9000ms linear;
+  transform: translate(-64px);
+  transition: transform 800ms linear;
 }
