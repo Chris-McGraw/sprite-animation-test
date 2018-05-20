@@ -17,7 +17,7 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $spriteImg = $("#sprite-img");
-  var spritePosition = 0;
+  var spritePosition = 472;
   var loopTimer = 0;
   var loopCount = 1;
 
@@ -181,31 +181,35 @@ $(document).ready(function() {
   $(document).keydown(function(event) {
     if(loopCount <= 1) {
       if(event.which === 68 || event.which === 39) {
-        /* $spriteImg.addClass("move-right"); */
+        $spriteImg.addClass("move-right");
         walkLoop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
-
-          /* spritePosition = $spriteImg.position().left;
+          spritePosition += 58;
           $spriteImg.css("left", spritePosition + "px");
-          $spriteImg.removeClass("move-right"); */
+
+          console.log(spritePosition);
+
+          $spriteImg.removeClass("move-right");
 
         }, 720);
       }
 
       if(event.which === 65 || event.which === 37) {
-        /* $spriteImg.addClass("move-left"); */
+        $spriteImg.addClass("move-left");
         walk_Left_Loop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
-
-          /* spritePosition = $spriteImg.position().left;
+          spritePosition -= 58;
           $spriteImg.css("left", spritePosition + "px");
-          $spriteImg.removeClass("move-left"); */
+
+          console.log(spritePosition);
+
+          $spriteImg.removeClass("move-left");
 
         }, 720);
       }
