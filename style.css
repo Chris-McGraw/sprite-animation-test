@@ -2,20 +2,24 @@
   margin: 0;
   padding: 0;
   user-select: none;
+
+  /* border: 2px solid red; */
 }
 
 #sprite-img {
   position: absolute;
   top: 200px;
-  left: 100px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
 }
 
 .move-right {
-  transform: translate(1000px);
-  transition: transform 9000ms linear;
+  transform: translate(64px);
+  transition: transform 800ms linear;
 }
 
 .move-left {
-  transform: translate(0px);
-  transition: transform 9000ms linear;
+  transform: translate(-64px);
+  transition: transform 800ms linear;
 }

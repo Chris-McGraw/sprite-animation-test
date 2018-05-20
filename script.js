@@ -1,3 +1,5 @@
+var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526830307/down-move-0_wl6m70.png";
+
 var rightMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-0_gbenfg.png";
 var rightMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-1_tsz08l.png";
 var rightMove2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-2_qhqeeu.png";
@@ -15,6 +17,7 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $spriteImg = $("#sprite-img");
+  var spritePosition = 100;
   var loopTimer = 0;
   var loopCount = 1;
 
@@ -83,7 +86,7 @@ $(document).ready(function() {
 
     loopCount++;
 
-    if (loopCount <= 13) {
+    if (loopCount <= 1) {
       walkLoop();
     }
     else {
@@ -156,7 +159,7 @@ $(document).ready(function() {
 
     loopCount++;
 
-    if (loopCount <= 13) {
+    if (loopCount <= 1) {
       walk_Left_Loop();
     }
     else {
@@ -164,18 +167,53 @@ $(document).ready(function() {
     }
   }
 
+
+  /* ----------------- Down Movement Functionality ----------------- */
+
+  function down_Move_Zero() {
+    setTimeout(function() {
+      $spriteImg.attr("src", downMove0);
+    }, loopTimer);
+  }
+
 /* ---------------------------- Event Handlers ---------------------------- */
 
-  $spriteImg.on("click", function() {
-    $spriteImg.addClass("move-right");
-    walkLoop();
+  $(document).keydown(function(event) {
+    if(loopCount <= 1) {
+      if(event.which === 68) {
+        /* $spriteImg.addClass("move-right"); */
+        walkLoop();
 
-    setTimeout(function() {
-      loopTimer = 0;
-      loopCount = 1;
+        setTimeout(function() {
+          loopTimer = 0;
+          loopCount = 1;
 
-      $spriteImg.addClass("move-left");
-      walk_Left_Loop();
-    }, 9600);
+          /* spritePosition = $spriteImg.position().left;
+          $spriteImg.css("left", spritePosition + "px");
+          $spriteImg.removeClass("move-right"); */
+
+        }, 720);
+      }
+
+      if(event.which === 65) {
+        /* $spriteImg.addClass("move-left"); */
+        walk_Left_Loop();
+
+        setTimeout(function() {
+          loopTimer = 0;
+          loopCount = 1;
+
+          /* spritePosition = $spriteImg.position().left;
+          $spriteImg.css("left", spritePosition + "px");
+          $spriteImg.removeClass("move-left"); */
+
+        }, 720);
+      }
+
+      $(document).keyup(function(event) {
+        down_Move_Zero();
+      });
+    }
   });
+
 });
