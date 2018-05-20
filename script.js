@@ -1,4 +1,4 @@
-var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526827740/down-move-0_lwmufh.png";
+var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526830307/down-move-0_wl6m70.png";
 
 var rightMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-0_gbenfg.png";
 var rightMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-1_tsz08l.png";
