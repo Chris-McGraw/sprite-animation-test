@@ -181,36 +181,40 @@ $(document).ready(function() {
   $(document).keydown(function(event) {
     if(loopCount <= 1) {
       if(event.which === 68 || event.which === 39) {
-        $spriteImg.addClass("move-right");
+        if(spritePosition < 936) {
+          $spriteImg.addClass("move-right");
+        }
+
         walkLoop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
-          spritePosition += 58;
-          $spriteImg.css("left", spritePosition + "px");
 
-          console.log(spritePosition);
-
-          $spriteImg.removeClass("move-right");
-
+          if(spritePosition < 936) {
+            spritePosition += 58;
+            $spriteImg.css("left", spritePosition + "px");
+            $spriteImg.removeClass("move-right");
+          }
         }, 720);
       }
 
       if(event.which === 65 || event.which === 37) {
-        $spriteImg.addClass("move-left");
+        if(spritePosition > 8) {
+          $spriteImg.addClass("move-left");
+        }
+
         walk_Left_Loop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
-          spritePosition -= 58;
-          $spriteImg.css("left", spritePosition + "px");
 
-          console.log(spritePosition);
-
-          $spriteImg.removeClass("move-left");
-
+          if(spritePosition > 8) {
+            spritePosition -= 58;
+            $spriteImg.css("left", spritePosition + "px");
+            $spriteImg.removeClass("move-left");
+          }
         }, 720);
       }
     }
