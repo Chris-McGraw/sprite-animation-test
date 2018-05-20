@@ -17,7 +17,7 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $spriteImg = $("#sprite-img");
-  var spritePosition = 100;
+  var spritePosition = 0;
   var loopTimer = 0;
   var loopCount = 1;
 
@@ -180,7 +180,7 @@ $(document).ready(function() {
 
   $(document).keydown(function(event) {
     if(loopCount <= 1) {
-      if(event.which === 68) {
+      if(event.which === 68 || event.which === 39) {
         /* $spriteImg.addClass("move-right"); */
         walkLoop();
 
@@ -195,7 +195,7 @@ $(document).ready(function() {
         }, 720);
       }
 
-      if(event.which === 65) {
+      if(event.which === 65 || event.which === 37) {
         /* $spriteImg.addClass("move-left"); */
         walk_Left_Loop();
 
@@ -209,10 +209,6 @@ $(document).ready(function() {
 
         }, 720);
       }
-
-      $(document).keyup(function(event) {
-        down_Move_Zero();
-      });
     }
   });
 
