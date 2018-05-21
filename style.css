@@ -31,3 +31,8 @@
   transform: translate(-64px);
   transition: transform 800ms linear;
 }
+
+.move-down {
+  transform: translateY(64px);
+  transition: transform 800ms linear;
+}
