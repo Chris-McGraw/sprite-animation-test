@@ -1,8 +1,8 @@
 var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526911176/down-move-0_ixr4ka.png";
-var downMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526908784/down-move-1_ha1gge.png";
-var downMove2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526908784/down-move-2_tmevvh.png";
-var downMove3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526908784/down-move-3_fl7hlj.png";
-var downMove4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526908784/down-move-4_omxrjy.png";
+var downMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-1_t0qvlk.png";
+var downMove2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-2_mvim2d.png";
+var downMove3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-3_e4ahvd.png";
+var downMove4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-4_t9iq8b.png";
 
 var rightMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-0_gbenfg.png";
 var rightMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-1_tsz08l.png";
@@ -279,7 +279,9 @@ $(document).ready(function() {
       }
 
       if(event.which === 83 || event.which === 40) {
-        $spriteImg.addClass("move-down");
+        if(spritePositionY < 252) {
+          $spriteImg.addClass("move-down");
+        }
 
         walk_Down_Loop();
 
@@ -287,9 +289,11 @@ $(document).ready(function() {
           loopTimer = 0;
           loopCount = 1;
 
-          spritePositionY += 58;
-          $spriteImg.css("top", spritePositionY + "px");
-          $spriteImg.removeClass("move-down");
+          if(spritePositionY < 252) {
+            spritePositionY += 58;
+            $spriteImg.css("top", spritePositionY + "px");
+            $spriteImg.removeClass("move-down");
+          }
         }, 720);
       }
     }
