@@ -1,4 +1,8 @@
-var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526830307/down-move-0_wl6m70.png";
+var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526911176/down-move-0_ixr4ka.png";
+var downMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-1_t0qvlk.png";
+var downMove2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-2_mvim2d.png";
+var downMove3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-3_e4ahvd.png";
+var downMove4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-4_t9iq8b.png";
 
 var rightMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-0_gbenfg.png";
 var rightMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-1_tsz08l.png";
@@ -17,7 +21,10 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $spriteImg = $("#sprite-img");
-  var spritePosition = 100;
+
+  var spritePositionX = 472;
+  var spritePositionY = 136;
+
   var loopTimer = 0;
   var loopCount = 1;
 
@@ -31,13 +38,11 @@ $(document).ready(function() {
     }, loopTimer);
   }
 
-
   function moveOne() {
     setTimeout(function() {
       $spriteImg.attr("src", rightMove1);
     }, loopTimer);
   }
-
 
   function moveTwo() {
     setTimeout(function() {
@@ -50,7 +55,6 @@ $(document).ready(function() {
       $spriteImg.attr("src", rightMove3);
     }, loopTimer);
   }
-
 
   function moveFour() {
     setTimeout(function() {
@@ -103,13 +107,11 @@ $(document).ready(function() {
     }, loopTimer);
   }
 
-
   function left_Move_One() {
     setTimeout(function() {
       $spriteImg.attr("src", leftMove1);
     }, loopTimer);
   }
-
 
   function left_Move_Two() {
     setTimeout(function() {
@@ -123,7 +125,6 @@ $(document).ready(function() {
     }, loopTimer);
   }
 
-
   function left_Move_Four() {
     setTimeout(function() {
       $spriteImg.attr("src", leftMove4);
@@ -132,7 +133,6 @@ $(document).ready(function() {
 
 
   function walk_Left_Loop() {
-
     left_Move_Zero();
     loopTimer += 90;
 
@@ -176,43 +176,126 @@ $(document).ready(function() {
     }, loopTimer);
   }
 
+  function down_Move_One() {
+    setTimeout(function() {
+      $spriteImg.attr("src", downMove1);
+    }, loopTimer);
+  }
+
+  function down_Move_Two() {
+    setTimeout(function() {
+      $spriteImg.attr("src", downMove2);
+    }, loopTimer);
+  }
+
+  function down_Move_Three() {
+    setTimeout(function() {
+      $spriteImg.attr("src", downMove3);
+    }, loopTimer);
+  }
+
+  function down_Move_Four() {
+    setTimeout(function() {
+      $spriteImg.attr("src", downMove4);
+    }, loopTimer);
+  }
+
+
+  function walk_Down_Loop() {
+    down_Move_Zero();
+    loopTimer += 90;
+
+    down_Move_One();
+    loopTimer += 90;
+
+    down_Move_Two();
+    loopTimer += 90;
+
+    down_Move_One();
+    loopTimer += 90;
+
+    down_Move_Zero();
+    loopTimer += 90;
+
+    down_Move_Three();
+    loopTimer += 90;
+
+    down_Move_Four();
+    loopTimer += 90;
+
+    down_Move_Three();
+    loopTimer += 90;
+
+    loopCount++;
+
+    if (loopCount <= 1) {
+      walk_Down_Loop();
+    }
+    else {
+      down_Move_Zero();
+    }
+  }
+
 /* ---------------------------- Event Handlers ---------------------------- */
 
   $(document).keydown(function(event) {
     if(loopCount <= 1) {
-      if(event.which === 68) {
-        /* $spriteImg.addClass("move-right"); */
+      if(event.which === 68 || event.which === 39) {
+        if(spritePositionX < 936) {
+          $spriteImg.addClass("move-right");
+        }
+
         walkLoop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
 
-          /* spritePosition = $spriteImg.position().left;
-          $spriteImg.css("left", spritePosition + "px");
-          $spriteImg.removeClass("move-right"); */
-
+          if(spritePositionX < 936) {
+            spritePositionX += 58;
+            $spriteImg.css("left", spritePositionX + "px");
+            $spriteImg.removeClass("move-right");
+          }
         }, 720);
       }
 
-      if(event.which === 65) {
-        /* $spriteImg.addClass("move-left"); */
+      if(event.which === 65 || event.which === 37) {
+        if(spritePositionX > 8) {
+          $spriteImg.addClass("move-left");
+        }
+
         walk_Left_Loop();
 
         setTimeout(function() {
           loopTimer = 0;
           loopCount = 1;
 
-          /* spritePosition = $spriteImg.position().left;
-          $spriteImg.css("left", spritePosition + "px");
-          $spriteImg.removeClass("move-left"); */
-
+          if(spritePositionX > 8) {
+            spritePositionX -= 58;
+            $spriteImg.css("left", spritePositionX + "px");
+            $spriteImg.removeClass("move-left");
+          }
         }, 720);
       }
 
-      $(document).keyup(function(event) {
-        down_Move_Zero();
-      });
+      if(event.which === 83 || event.which === 40) {
+        if(spritePositionY < 252) {
+          $spriteImg.addClass("move-down");
+        }
+
+        walk_Down_Loop();
+
+        setTimeout(function() {
+          loopTimer = 0;
+          loopCount = 1;
+
+          if(spritePositionY < 252) {
+            spritePositionY += 58;
+            $spriteImg.css("top", spritePositionY + "px");
+            $spriteImg.removeClass("move-down");
+          }
+        }, 720);
+      }
     }
   });
 
