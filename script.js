@@ -1,7 +1,7 @@
 var downMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526911176/down-move-0_ixr4ka.png";
-var downMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-1_t0qvlk.png";
+var downMove1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1527003049/down-move-1_gyghpk.png";
 var downMove2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-2_mvim2d.png";
-var downMove3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-3_e4ahvd.png";
+var downMove3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1527003049/down-move-3_j9tni3.png";
 var downMove4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526913808/down-move-4_t9iq8b.png";
 
 var rightMove0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1526269076/right-move-0_gbenfg.png";
