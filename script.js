@@ -27,10 +27,8 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $spriteImg = $("#sprite-img");
-
-  var spritePositionX = 472;
+  var spritePositionX = 168;
   var spritePositionY = 136;
-
   var loopTimer = 0;
   var loopCount = 1;
 
@@ -316,7 +314,7 @@ $(document).ready(function() {
   $(document).keydown(function(event) {
     if(loopCount <= 1) {
       if(event.which === 68 || event.which === 39) {
-        if(spritePositionX < 936) {
+        if(spritePositionX < 284) {
           $spriteImg.addClass("move-right");
         }
 
@@ -326,7 +324,7 @@ $(document).ready(function() {
           loopTimer = 0;
           loopCount = 1;
 
-          if(spritePositionX < 936) {
+          if(spritePositionX < 284) {
             spritePositionX += 58;
             $spriteImg.css("left", spritePositionX + "px");
             $spriteImg.removeClass("move-right");
@@ -335,7 +333,7 @@ $(document).ready(function() {
       }
 
       if(event.which === 65 || event.which === 37) {
-        if(spritePositionX > 8) {
+        if(spritePositionX > 52) {
           $spriteImg.addClass("move-left");
         }
 
@@ -345,7 +343,7 @@ $(document).ready(function() {
           loopTimer = 0;
           loopCount = 1;
 
-          if(spritePositionX > 8) {
+          if(spritePositionX > 52) {
             spritePositionX -= 58;
             $spriteImg.css("left", spritePositionX + "px");
             $spriteImg.removeClass("move-left");
