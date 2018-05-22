@@ -8,9 +8,9 @@
 
 #sprite-container {
   position: absolute;
-  top: 63px;
-  left: 126px;
-  width: 1008px;
+  top: 60px;
+  left: 120px;
+  width: 400px;
   height: 400px;
   border: 1px solid black;
   overflow: hidden;
@@ -19,7 +19,7 @@
 #sprite-img {
   position: absolute;
   top: 136px;
-  left: 472px;
+  left: 168px;
 }
 
 .move-right {
@@ -34,5 +34,10 @@
 
 .move-down {
   transform: translateY(64px);
+  transition: transform 800ms linear;
+}
+
+.move-up {
+  transform: translateY(-64px);
   transition: transform 800ms linear;
 }
